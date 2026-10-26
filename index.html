@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>PAIR — Build with the right person</title>
+<meta name="description" content="PAIR helps ambitious people find, evaluate, and test potential business partners before they commit to building a company together.">
+<meta name="theme-color" content="#F4F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#09090F" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B14'/%3E%3Crect x='6' y='8' width='8' height='16' fill='%23F4F4F7'/%3E%3Crect x='15.5' y='6' width='1' height='20' fill='%232A17F5'/%3E%3Crect x='18' y='8' width='8' height='16' fill='%23F4F4F7'/%3E%3C/svg%3E">
+
+<!-- TODO once the domain is live: add <link rel="canonical"> and an absolute og:image. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PAIR">
+<meta property="og:title" content="PAIR — Build with the right person">
+<meta property="og:description" content="PAIR helps ambitious people find, evaluate, and test potential business partners before they commit to building a company together.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PAIR — Build with the right person">
+<meta name="twitter:description" content="PAIR helps ambitious people find, evaluate, and test potential business partners before they commit to building a company together.">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"PAIR","slogan":"Build with the right person.","description":"PAIR helps ambitious people find, evaluate, and test potential business partners before they commit to building a company together."}
+</script>
+
+<style>
+  :root{color-scheme:light dark}
+  html,body{margin:0;padding:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#F4F4F7;
+  --panel:#FFFFFF;
+  --panel-2:#ECECF2;
+  --ink:#0B0B14;
+  --ink-2:#3B3B49;
+  --muted:#6C6C7B;
+  --line:#DCDCE5;
+  --line-2:#C6C6D3;
+  --accent:#2A17F5;
+  --accent-2:#5A4BFF;
+  --on-accent:#FFFFFF;
+  --accent-wash:#E6E3FE;
+  --signal:#8F5312;
+  --signal-wash:#F4E7D6;
+  --shadow:0 1px 2px rgba(11,11,20,.05), 0 18px 40px -24px rgba(11,11,20,.28);
+  --shadow-lift:0 2px 4px rgba(11,11,20,.06), 0 30px 60px -28px rgba(11,11,20,.35);
+
+  --display:"Familjen Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --body:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --wrap:1240px;
+  --pad:clamp(20px,5vw,64px);
+  --sec:clamp(76px,9vw,136px);
+  --r:3px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#09090F;
+    --panel:#111119;
+    --panel-2:#1A1A24;
+    --ink:#EDEDF3;
+    --ink-2:#BDBDCB;
+    --muted:#878797;
+    --line:#232330;
+    --line-2:#33333F;
+    --accent:#7565FF;
+    --accent-2:#9084FF;
+    --on-accent:#08080E;
+    --accent-wash:#1A1640;
+    --signal:#D69553;
+    --signal-wash:#2A2012;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -24px rgba(0,0,0,.8);
+    --shadow-lift:0 2px 4px rgba(0,0,0,.5), 0 30px 60px -28px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#09090F;
+  --panel:#111119;
+  --panel-2:#1A1A24;
+  --ink:#EDEDF3;
+  --ink-2:#BDBDCB;
+  --muted:#878797;
+  --line:#232330;
+  --line-2:#33333F;
+  --accent:#7565FF;
+  --accent-2:#9084FF;
+  --on-accent:#08080E;
+  --accent-wash:#1A1640;
+  --signal:#D69553;
+  --signal-wash:#2A2012;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -24px rgba(0,0,0,.8);
+  --shadow-lift:0 2px 4px rgba(0,0,0,.5), 0 30px 60px -28px rgba(0,0,0,.9);
+}
+
+/* Inverted panels: dark in every theme, lifted slightly when the page is already dark */
+.invert{
+  --bg:#0A0A12;
+  --panel:#14141E;
+  --panel-2:#1D1D29;
+  --ink:#F2F2F7;
+  --ink-2:#C3C3D0;
+  --muted:#8B8B9C;
+  --line:#252533;
+  --line-2:#363646;
+  --accent:#7B6BFF;
+  --accent-2:#9C92FF;
+  --on-accent:#08080E;
+  --accent-wash:#1C1745;
+  --signal:#DC9A57;
+  --signal-wash:#2C2113;
+  color:var(--ink);
+  background:var(--bg);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .invert{ --bg:#101018; --panel:#1A1A26; --panel-2:#232331; --line:#2C2C3B; }
+}
+:root[data-theme="dark"] .invert{ --bg:#101018; --panel:#1A1A26; --panel-2:#232331; --line:#2C2C3B; }
+
+/* ============ BASE ============ */
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.028em;line-height:1.02}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{
+  font-family:var(--mono);font-size:.69rem;font-weight:500;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--muted);
+}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ============ SEAM MOTIF ============ */
+.seam{display:inline-block;width:1px;height:.78em;background:var(--accent);vertical-align:-.04em;margin-inline:.14em}
+
+/* ============ HEADER ============ */
+header{
+  position:sticky;top:0;z-index:60;
+  background:var(--bg);
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease;
+}
+header.stuck{border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:66px}
+.mark{
+  font-family:var(--display);font-weight:700;font-size:1.16rem;letter-spacing:.02em;
+  display:inline-flex;align-items:center;
+}
+.mark .seam{height:.72em;margin-inline:.2em}
+nav.links{display:flex;gap:30px;align-items:center}
+nav.links a{font-size:.93rem;color:var(--ink-2);transition:color .2s}
+nav.links a:hover{color:var(--ink)}
+@media (max-width:880px){nav.links{display:none}}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  padding:13px 22px;border-radius:var(--r);
+  font-family:var(--body);font-weight:600;font-size:.96rem;letter-spacing:-.01em;
+  background:var(--accent);color:var(--on-accent);
+  border:1px solid var(--accent);
+  transition:transform .18s cubic-bezier(.2,.8,.3,1), box-shadow .2s, background .2s;
+  box-shadow:0 1px 0 rgba(0,0,0,.04);
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px -10px color-mix(in srgb,var(--accent) 70%, transparent)}
+.btn:active{transform:translateY(0)}
+.btn .arw{transition:transform .22s cubic-bezier(.2,.8,.3,1)}
+.btn:hover .arw{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+.btn.ghost:hover{border-color:var(--ink);box-shadow:none}
+.btn.sm{padding:9px 16px;font-size:.88rem}
+.btn.lg{padding:16px 28px;font-size:1.03rem}
+
+/* ============ SECTION GRAMMAR ============ */
+section{border-top:1px solid var(--line)}
+section.first{border-top:none}
+.sec{padding-block:var(--sec)}
+.head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);
+  gap:clamp(24px,5vw,72px);align-items:end;
+}
+@media (max-width:900px){.head{grid-template-columns:1fr;align-items:start;gap:22px}}
+.head h2{font-size:clamp(2.05rem,4.4vw,3.5rem)}
+.head .lede{color:var(--ink-2);max-width:60ch;font-size:1.06rem}
+.idx{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.idx::after{content:"";flex:1;height:1px;background:var(--line);max-width:120px}
+
+/* ============ HERO ============ */
+.hero{padding-top:clamp(52px,7vw,86px);padding-bottom:clamp(56px,7vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media (max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{
+  font-size:clamp(3rem,7.2vw,5.5rem);
+  letter-spacing:-.045em;line-height:.94;margin-top:20px;text-wrap:normal;
+}
+.hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.055em;background:var(--accent);
+  transform:scaleX(0);transform-origin:left;animation:swipe .8s cubic-bezier(.2,.8,.3,1) .55s forwards;
+}
+@keyframes swipe{to{transform:scaleX(1)}}
+.hero .support{margin-top:26px;font-size:1.14rem;color:var(--ink-2);max-width:44ch;line-height:1.55}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .whofor{
+  margin-top:26px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:.9rem;color:var(--muted);max-width:46ch;
+}
+
+/* ============ PAIR BOARD (hero visual) ============ */
+.board{
+  position:relative;background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow);padding:clamp(16px,2.4vw,26px);
+  overflow:hidden;
+}
+.board::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:34px 34px;
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 40%,#000 25%,transparent 78%);
+  mask-image:radial-gradient(120% 90% at 50% 40%,#000 25%,transparent 78%);
+}
+.board > *{position:relative}
+.board-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:clamp(14px,2vw,22px)}
+.board-top .tag{
+  font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:2px;
+}
+.pair{position:relative;display:grid;grid-template-columns:1fr 1px 1fr;align-items:stretch}
+.pair .rail{background:var(--line);position:relative}
+.pair .rail::after{
+  content:"";position:absolute;top:50%;left:50%;width:9px;height:9px;
+  transform:translate(-50%,-50%) rotate(45deg);background:var(--accent);
+}
+.card{
+  padding:clamp(14px,1.8vw,20px);
+  transition:transform .8s cubic-bezier(.16,1,.3,1), opacity .6s ease;
+}
+.card.left{transform:translateX(-16px)}
+.card.right{transform:translateX(16px)}
+.pair.locked .card.left,.pair.locked .card.right{transform:translateX(0)}
+.card .who{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.card .nm{font-family:var(--display);font-weight:600;font-size:clamp(1.15rem,2vw,1.45rem);letter-spacing:-.03em}
+.card .rl{font-size:.92rem;color:var(--ink-2);margin-top:3px}
+.card .loc{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:9px}
+.card .traits{margin-top:16px;display:grid;gap:9px}
+.trait{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:center}
+.trait span{font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:62px}
+.trait .track{display:block;height:3px;background:var(--panel-2);border-radius:2px;overflow:hidden}
+.trait .fill{display:block;height:100%;background:var(--accent);transform-origin:left;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.card.right .trait .fill{background:var(--ink)}
+
+.verdict{margin-top:clamp(18px,2.4vw,26px);border-top:1px solid var(--line);padding-top:clamp(16px,2vw,22px)}
+.verdict-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.pct{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,5.4vw,3.9rem);letter-spacing:-.05em;line-height:.85;font-variant-numeric:tabular-nums}
+.pct sup{font-size:.38em;font-weight:600;vertical-align:super;margin-left:.06em}
+.verdict-lbl{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.checks{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.chk{
+  display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:100px;padding:5px 11px;background:var(--panel);
+  opacity:0;transform:translateY(4px);animation:pop .45s cubic-bezier(.2,.8,.3,1) forwards;
+}
+@keyframes pop{to{opacity:1;transform:translateY(0)}}
+.chk svg{width:11px;height:11px;flex:none;color:var(--accent)}
+.complement{
+  margin-top:16px;font-size:.85rem;color:var(--muted);display:flex;gap:9px;align-items:flex-start;
+}
+.complement b{color:var(--ink-2);font-weight:600;flex:none;white-space:nowrap}
+.cycler{display:flex;align-items:center;gap:12px}
+.dots{display:flex;gap:5px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--line-2);transition:background .25s,width .25s;border:none;padding:0;cursor:pointer}
+.dot[aria-current="true"]{background:var(--accent);width:16px;border-radius:3px}
+.nextbtn{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);padding:5px 10px;border-radius:2px;transition:color .2s,border-color .2s;
+}
+.nextbtn:hover{color:var(--ink);border-color:var(--line-2)}
+@media (max-width:560px){
+  .pair{grid-template-columns:1fr;grid-template-rows:auto 1px auto}
+  .pair .rail{height:1px}
+  .card.left{transform:translateY(-10px)}
+  .card.right{transform:translateY(10px)}
+  .pair.locked .card.left,.pair.locked .card.right{transform:translateY(0)}
+}
+
+/* ============ PROBLEM ============ */
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:860px){.problems{grid-template-columns:1fr}}
+.prob{background:var(--panel);padding:clamp(26px,3vw,38px) clamp(20px,2.4vw,32px);display:flex;flex-direction:column;gap:12px}
+.prob .n{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--muted)}
+.prob h3{font-size:1.42rem;letter-spacing:-.032em;margin-top:4px}
+.prob p{color:var(--ink-2);font-size:1rem;max-width:34ch}
+.punch{margin-top:clamp(38px,5vw,58px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start}
+@media (max-width:860px){.punch{grid-template-columns:1fr;gap:18px}}
+.punch p{color:var(--ink-2)}
+.punch .kicker{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,2.6vw,2.05rem);letter-spacing:-.035em;line-height:1.1;color:var(--ink)}
+
+/* ============ PROCESS ============ */
+.steps{margin-top:clamp(46px,6vw,78px);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}}
+.step{background:var(--bg);padding:clamp(24px,2.6vw,32px) clamp(18px,2vw,26px);position:relative;display:flex;flex-direction:column;gap:11px;min-height:230px}
+.step .marker{display:flex;align-items:center;gap:10px}
+.step .num{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;color:var(--accent);font-weight:600}
+.step .node{width:7px;height:7px;background:var(--accent);transform:rotate(45deg)}
+.step h3{font-size:1.28rem;letter-spacing:-.03em;margin-top:6px}
+.step p{font-size:.97rem;color:var(--ink-2)}
+.step .trial-flag{
+  margin-top:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);border-top:1px solid var(--line);padding-top:12px;
+}
+
+/* ============ FOUNDER TRIAL (inverted) ============ */
+.trial-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(30px,4.5vw,64px);align-items:start;margin-top:clamp(40px,5vw,66px)}
+@media (max-width:1000px){.trial-grid{grid-template-columns:1fr;gap:36px}}
+.trial-copy p{color:var(--ink-2);font-size:1.05rem}
+.trial-copy .quote{
+  margin-top:28px;padding-left:18px;border-left:2px solid var(--accent);
+  font-family:var(--display);font-size:1.22rem;letter-spacing:-.025em;line-height:1.3;color:var(--ink);
+}
+.app{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow-lift);overflow:hidden;
+}
+.app-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel-2)}
+.app-bar .t{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.app-bar .d{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:var(--accent)}
+.app-body{padding:clamp(18px,2.4vw,26px);display:grid;gap:22px}
+.duo{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.duo .names{font-family:var(--display);font-weight:600;font-size:1.3rem;letter-spacing:-.03em;display:flex;align-items:center;gap:.35em}
+.duo .names .x{color:var(--accent);font-weight:500}
+.prog{display:grid;gap:8px}
+.prog .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prog .track{height:6px;background:var(--panel-2);border-radius:3px;overflow:hidden;border:1px solid var(--line)}
+.prog .fill{height:100%;background:var(--accent);transform-origin:left;animation:grow 1.1s cubic-bezier(.16,1,.3,1) both}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.mission{border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;background:var(--bg)}
+.mission .lbl{font-family:var(--mono);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.mission .txt{font-family:var(--display);font-weight:500;font-size:1.12rem;letter-spacing:-.025em;margin-top:7px}
+.signals{display:grid;gap:11px}
+.signals .lbl{font-family:var(--mono);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.sig{display:grid;grid-template-columns:118px 1fr 42px;gap:12px;align-items:center}
+@media (max-width:480px){.sig{grid-template-columns:96px 1fr 38px;gap:9px}}
+.sig .k{font-size:.86rem;color:var(--ink-2)}
+.sig .track{display:block;height:4px;background:var(--panel-2);border-radius:2px;overflow:hidden}
+.sig .fill{display:block;height:100%;background:var(--accent);transform-origin:left;animation:grow 1s cubic-bezier(.16,1,.3,1) both}
+.sig .v{font-family:var(--mono);font-size:.8rem;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.decide{border-top:1px solid var(--line);padding-top:20px}
+.decide .q{font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:-.028em}
+.opts{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.opt{
+  flex:1;min-width:88px;padding:11px 14px;border:1px solid var(--line-2);border-radius:var(--r);
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-2);
+  transition:all .2s;text-align:center;
+}
+.opt:hover{border-color:var(--ink-2);color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.decide .echo{margin-top:13px;font-size:.87rem;color:var(--muted);min-height:1.4em}
+
+/* ============ DNA ============ */
+.dna-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(30px,4.5vw,68px);align-items:start;margin-top:clamp(40px,5vw,66px)}
+@media (max-width:960px){.dna-grid{grid-template-columns:1fr;gap:34px}}
+.dna{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);box-shadow:var(--shadow);overflow:hidden}
+.dna-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--panel-2);flex-wrap:wrap}
+.dna-head .t{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.legend{display:flex;gap:14px;font-family:var(--mono);font-size:.63rem;letter-spacing:.08em;color:var(--muted);align-items:center}
+.legend i{display:inline-block;width:14px;height:3px;background:var(--accent);margin-right:6px;vertical-align:middle}
+.legend .b i{background:none;border-top:2px dashed var(--ink-2);height:0}
+.dna-body{padding:clamp(16px,2.2vw,24px);display:grid;gap:13px}
+.axis{display:grid;grid-template-columns:96px 1fr 34px;gap:12px;align-items:center}
+@media (max-width:480px){.axis{grid-template-columns:80px 1fr 30px;gap:9px}}
+.axis .k{font-size:.85rem;color:var(--ink-2)}
+.axis .track{display:block;position:relative;height:16px;background:var(--panel-2);border-radius:2px;overflow:hidden}
+.axis .fill{position:absolute;inset:0 auto 0 0;background:var(--accent);transform-origin:left;transition:width .55s cubic-bezier(.16,1,.3,1)}
+.axis .ghost{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink-2);opacity:.65;transition:left .55s cubic-bezier(.16,1,.3,1)}
+.axis .v{font-family:var(--mono);font-size:.79rem;text-align:right;font-variant-numeric:tabular-nums}
+.arch{border-top:1px solid var(--line);padding:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:var(--bg)}
+.arch .l{font-family:var(--mono);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.arch .v{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.03em}
+.who-tabs{display:flex;gap:6px}
+.who-tab{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.11em;text-transform:uppercase;
+  padding:6px 11px;border:1px solid var(--line);border-radius:2px;color:var(--muted);transition:all .2s;
+}
+.who-tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dna-copy p{color:var(--ink-2)}
+.dna-copy .big{
+  font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,3vw,2.3rem);
+  letter-spacing:-.035em;line-height:1.08;margin-top:22px;
+}
+.dna-copy .big u{text-decoration:none;color:var(--accent)}
+.dims{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.dim{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--line);padding:5px 10px;border-radius:100px}
+
+/* ============ MATCH CARDS ============ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px);margin-top:clamp(40px,5vw,66px)}
+@media (max-width:1000px){.cards{grid-template-columns:1fr;max-width:560px}}
+.mcard{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  display:flex;flex-direction:column;transition:transform .25s cubic-bezier(.2,.8,.3,1),box-shadow .25s,border-color .25s;
+}
+.mcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--line-2)}
+.mcard .top{padding:20px 20px 16px;border-bottom:1px solid var(--line)}
+.mcard .nm{font-family:var(--display);font-weight:600;font-size:1.28rem;letter-spacing:-.032em}
+.mcard .rl{font-size:.93rem;color:var(--ink-2);margin-top:3px}
+.mcard .loc{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.mcard .body{padding:18px 20px;display:grid;gap:15px;flex:1}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.kv .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);width:92px}
+.kv .v{font-size:.92rem;font-weight:600}
+.kv .v.normal{font-weight:400;color:var(--ink-2)}
+.mcard .score{display:flex;align-items:baseline;gap:9px;padding:14px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg)}
+.mcard .score b{font-family:var(--display);font-weight:700;font-size:1.9rem;letter-spacing:-.045em;font-variant-numeric:tabular-nums;line-height:1}
+.mcard .score span{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.why{padding:16px 20px;display:grid;gap:7px}
+.why .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.why .w{list-style:none;font-size:.9rem;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start}
+.why .w::before{content:"+";color:var(--accent);font-family:var(--mono);font-size:.85rem;line-height:1.5}
+.friction{padding:15px 20px 20px;border-top:1px dashed var(--line-2);background:var(--signal-wash)}
+.friction .lbl{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--signal)}
+.friction p{font-size:.89rem;color:var(--ink-2);margin-top:6px}
+.honest{margin-top:clamp(26px,3vw,38px);font-size:.95rem;color:var(--muted);max-width:62ch}
+
+/* ============ COMMUNITY ============ */
+.comm{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(26px,4vw,64px);align-items:center}
+@media (max-width:900px){.comm{grid-template-columns:1fr;gap:28px}}
+.cities{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.city{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);padding:7px 13px;border-radius:100px;background:var(--panel)}
+.city.ww{border-color:var(--accent);color:var(--accent)}
+
+/* ============ FINAL CTA ============ */
+.final{padding-block:clamp(86px,11vw,164px);text-align:left}
+.final h2{font-size:clamp(2.4rem,6.4vw,5rem);letter-spacing:-.045em;line-height:.98;max-width:16ch}
+.final p{margin-top:26px;font-size:1.14rem;color:var(--ink-2);max-width:46ch}
+.final .ctas{margin-top:38px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.final .free{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding-block:clamp(46px,5vw,72px) 34px}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,56px)}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr 1fr;gap:32px}.fgrid .brand{grid-column:1/-1}}
+.fgrid .brand .mark{font-size:1.5rem}
+.fgrid .brand p{margin-top:12px;color:var(--ink-2);font-size:1rem}
+.fcol h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.fcol ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:9px}
+.fcol a{font-size:.94rem;color:var(--ink-2);transition:color .2s}
+.fcol a:hover{color:var(--ink)}
+.fbot{margin-top:clamp(38px,5vw,62px);padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.social{display:flex;gap:14px}
+.social a{width:32px;height:32px;border:1px solid var(--line);border-radius:2px;display:grid;place-items:center;color:var(--muted);transition:all .2s}
+.social a:hover{color:var(--ink);border-color:var(--line-2)}
+.social svg{width:14px;height:14px}
+.copy{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--muted)}
+
+/* ============ MODAL ============ */
+.scrim{
+  position:fixed;inset:0;z-index:100;background:rgba(8,8,16,.55);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:grid;place-items:center;padding:16px;
+  opacity:0;pointer-events:none;transition:opacity .28s ease;
+}
+.scrim.open{opacity:1;pointer-events:auto}
+.modal{
+  width:min(660px,100%);max-height:min(88vh,860px);overflow-y:auto;
+  background:var(--bg);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.6);
+  transform:translateY(14px) scale(.985);transition:transform .32s cubic-bezier(.16,1,.3,1);
+}
+.scrim.open .modal{transform:none}
+.mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:clamp(22px,3vw,30px) clamp(22px,3vw,32px) 0}
+.mhead h3{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.035em}
+.mhead p{color:var(--ink-2);font-size:.98rem;margin-top:9px;max-width:44ch}
+.x{width:32px;height:32px;border:1px solid var(--line);border-radius:2px;display:grid;place-items:center;flex:none;color:var(--muted);transition:all .2s}
+.x:hover{color:var(--ink);border-color:var(--line-2)}
+form{padding:clamp(20px,3vw,28px) clamp(22px,3vw,32px) clamp(24px,3vw,32px);display:grid;gap:16px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:540px){.frow{grid-template-columns:1fr}}
+.field{display:grid;gap:7px}
+.field label{font-family:var(--mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.field input,.field textarea{
+  font-family:var(--body);font-size:.97rem;color:var(--ink);background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--r);padding:11px 13px;width:100%;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field textarea{resize:vertical;min-height:74px;line-height:1.5}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);opacity:.7}
+.segs{display:flex;gap:7px;flex-wrap:wrap}
+.seg{
+  flex:1;min-width:110px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r);
+  background:var(--panel);font-size:.86rem;color:var(--ink-2);transition:all .2s;text-align:center;
+}
+.seg:hover{border-color:var(--line-2)}
+.seg[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.err{color:var(--signal);font-size:.83rem;font-family:var(--mono);letter-spacing:.03em;min-height:1.1em}
+.done{padding:clamp(34px,5vw,56px) clamp(22px,3vw,32px);text-align:left}
+.done h3{font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.045em}
+.done p{margin-top:16px;color:var(--ink-2);font-size:1.06rem;max-width:40ch}
+.done .tick{width:38px;height:38px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:var(--on-accent);margin-bottom:22px}
+.done .tick svg{width:17px;height:17px}
+</style>
+</head>
+<body>
+
+
+<header id="top">
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="PAIR — home"><span aria-hidden="true">PA</span><i class="seam" aria-hidden="true"></i><span aria-hidden="true">IR</span></a>
+    <nav class="links" aria-label="Primary">
+      <a href="#problem">Why</a>
+      <a href="#how">How it works</a>
+      <a href="#trial">Founder Trial</a>
+      <a href="#matching">Matching</a>
+      <a href="#profiles">Profiles</a>
+    </nav>
+    <button class="btn sm" data-open>Join the founding cohort</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="first">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">The future of founding teams</p>
+        <h1>Build with the <em>right person</em>.</h1>
+        <p class="support">PAIR helps ambitious people find, evaluate, and test potential business partners before they commit to building a company together.</p>
+        <div class="ctas">
+          <button class="btn lg" data-open>Find my business partner <span class="arw" aria-hidden="true">→</span></button>
+          <a class="btn lg ghost" href="#how">See how it works</a>
+        </div>
+        <p class="whofor">For founders, builders, creators, operators, and people who know they want to build something.</p>
+      </div>
+
+      <div class="board" id="board">
+        <div class="board-top">
+          <p class="eyebrow">Complementary, not identical</p>
+          <span class="tag">Product preview</span>
+        </div>
+
+        <div class="pair" id="pairEl">
+          <article class="card left">
+            <div class="who"><span class="nm" data-f="l-name">Sofia</span></div>
+            <p class="rl" data-f="l-role">Full-stack Engineer</p>
+            <p class="loc" data-f="l-loc">Madrid · AI · Healthcare</p>
+            <div class="traits" data-traits="l"></div>
+          </article>
+
+          <div class="rail" aria-hidden="true"></div>
+
+          <article class="card right">
+            <div class="who"><span class="nm" data-f="r-name">Andrés</span></div>
+            <p class="rl" data-f="r-role">Business Strategist</p>
+            <p class="loc" data-f="r-loc">Quito · AI · Fintech</p>
+            <div class="traits" data-traits="r"></div>
+          </article>
+        </div>
+
+        <div class="verdict">
+          <div class="verdict-top">
+            <div>
+              <p class="verdict-lbl">Compatibility</p>
+              <p class="pct"><span id="pctNum">0</span><sup>%</sup> <span class="sr">match</span></p>
+            </div>
+            <div class="cycler">
+              <div class="dots" id="dots" role="tablist" aria-label="Example pairs"></div>
+              <button class="nextbtn" id="nextPair">Next pair →</button>
+            </div>
+          </div>
+          <div class="checks" id="checks"></div>
+          <p class="complement"><b>Why it works:</b> <span id="compLine">Sofia builds. Andrés sells. Neither could ship this alone.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem">
+  <div class="wrap sec" style="padding-bottom:0">
+    <div class="idx"><span class="eyebrow">The problem</span></div>
+    <div class="head">
+      <h2>Great ideas are everywhere. Great founding teams aren't.</h2>
+      <p class="lede">Starting a company is difficult enough. Finding someone who shares your ambition, complements your skills, works at your speed, and is actually committed to building with you can be even harder.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:clamp(40px,5.5vw,70px)">
+  <div class="problems">
+    <article class="prob">
+      <span class="n mono">01</span>
+      <h3>You have the idea.</h3>
+      <p>But you don't have the technical, commercial, creative, or operational partner to make it real.</p>
+    </article>
+    <article class="prob">
+      <span class="n mono">02</span>
+      <h3>Your network is limited.</h3>
+      <p>The person you should build with may be in another city, country, university, or industry.</p>
+    </article>
+    <article class="prob">
+      <span class="n mono">03</span>
+      <h3>Chemistry isn't enough.</h3>
+      <p>Someone can look perfect on paper and still be a terrible business partner.</p>
+    </article>
+  </div>
+  </div>
+  <div class="wrap" style="padding-block:clamp(36px,4.5vw,60px) var(--sec)">
+    <div class="punch">
+      <p class="kicker">Most people don't need another networking platform.</p>
+      <p>They need the right person — one person, evaluated properly, before anyone signs anything. That is the entire product.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION ============ -->
+<section id="how">
+  <div class="wrap sec" style="padding-bottom:0">
+    <div class="idx"><span class="eyebrow">The system</span></div>
+    <div class="head">
+      <h2>Don't just find a match. Test the partnership.</h2>
+      <p class="lede">Four stages, in order. Nothing is committed until the third one is behind you.</p>
+    </div>
+  </div>
+  <div class="wrap" style="padding-block:clamp(46px,6vw,78px) var(--sec)">
+    <div class="steps">
+      <article class="step">
+        <div class="marker"><i class="node" aria-hidden="true"></i><span class="num">01</span></div>
+        <h3>Discover</h3>
+        <p>Tell PAIR what you bring, what you want to build, how serious you are, and what kind of partner you need.</p>
+      </article>
+      <article class="step">
+        <div class="marker"><i class="node" aria-hidden="true"></i><span class="num">02</span></div>
+        <h3>Match</h3>
+        <p>Our compatibility engine identifies people whose skills, ambition, commitment, working style, and goals complement yours.</p>
+      </article>
+      <article class="step">
+        <div class="marker"><i class="node" aria-hidden="true"></i><span class="num">03</span></div>
+        <h3>Trial</h3>
+        <p>Before splitting equity or registering a company, run a short Founder Trial together. Work on a real problem.</p>
+        <p class="trial-flag">No equity. No company. Yet.</p>
+      </article>
+      <article class="step">
+        <div class="marker"><i class="node" aria-hidden="true"></i><span class="num">04</span></div>
+        <h3>Build</h3>
+        <p>If you work well together, keep building inside PAIR — with everything you learned about each other already on the table.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER TRIAL ============ -->
+<section id="trial" class="invert">
+  <div class="wrap sec">
+    <div class="idx"><span class="eyebrow">The differentiator</span></div>
+    <div class="head">
+      <h2>The match is only the beginning.</h2>
+      <p class="lede">We don't want to know who you say you are. We want to see how you build together.</p>
+    </div>
+
+    <div class="trial-grid">
+      <div class="trial-copy">
+        <p>The Founder Trial is a short, structured week of real work. Two people, one real problem, daily missions, and a running record of how each of you actually shows up.</p>
+        <p style="margin-top:16px">No equity. No incorporation. No awkward exit if it doesn't work. At the end, both of you answer one question — privately, at the same time.</p>
+        <p class="quote">The best partnerships aren't predicted by résumés. They're discovered through action.</p>
+      </div>
+
+      <div class="app">
+        <div class="app-bar">
+          <span class="t">Founder Trial</span>
+          <span class="d">Day 4 of 7</span>
+        </div>
+        <div class="app-body">
+          <div class="duo">
+            <p class="names">Sofia <span class="x" aria-hidden="true">+</span> Andrés</p>
+            <span class="tag mono" style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:2px">Product preview</span>
+          </div>
+
+          <div class="prog">
+            <div class="row"><span>Trial progress</span><span>86%</span></div>
+            <div class="track"><div class="fill" style="width:86%"></div></div>
+          </div>
+
+          <div class="mission">
+            <p class="lbl">Today's mission</p>
+            <p class="txt">Interview 5 potential customers.</p>
+          </div>
+
+          <div class="signals">
+            <p class="lbl">Partnership signals</p>
+            <div class="sig"><span class="k">Communication</span><span class="track"><span class="fill" style="width:94%;animation-delay:.05s"></span></span><span class="v">94</span></div>
+            <div class="sig"><span class="k">Execution</span><span class="track"><span class="fill" style="width:97%;animation-delay:.12s"></span></span><span class="v">97</span></div>
+            <div class="sig"><span class="k">Reliability</span><span class="track"><span class="fill" style="width:89%;animation-delay:.19s"></span></span><span class="v">89</span></div>
+            <div class="sig"><span class="k">Problem solving</span><span class="track"><span class="fill" style="width:92%;animation-delay:.26s"></span></span><span class="v">92</span></div>
+            <div class="sig"><span class="k">Speed</span><span class="track"><span class="fill" style="width:96%;animation-delay:.33s"></span></span><span class="v">96</span></div>
+          </div>
+
+          <div class="decide">
+            <p class="q">Would you continue building with this person?</p>
+            <div class="opts" role="group" aria-label="Continue building with this person?">
+              <button class="opt" aria-pressed="false" data-answer="yes">Yes</button>
+              <button class="opt" aria-pressed="false" data-answer="maybe">Maybe</button>
+              <button class="opt" aria-pressed="false" data-answer="no">No</button>
+            </div>
+            <p class="echo" id="echo">Both answers stay sealed until the trial ends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI MATCHING / DNA ============ -->
+<section id="matching">
+  <div class="wrap sec">
+    <div class="idx"><span class="eyebrow">The matching engine</span></div>
+    <div class="head">
+      <h2>Compatibility is more than a résumé.</h2>
+      <p class="lede">PAIR reads what you can contribute, what you need, how you work, how much risk you tolerate, how committed you are, and what you're trying to build.</p>
+    </div>
+
+    <div class="dna-grid">
+      <div class="dna">
+        <div class="dna-head">
+          <span class="t">Entrepreneurial DNA</span>
+          <div class="who-tabs" role="tablist" aria-label="Whose profile to show">
+            <button class="who-tab" role="tab" aria-selected="true" data-dna="you">You</button>
+            <button class="who-tab" role="tab" aria-selected="false" data-dna="sofia">Sofia</button>
+          </div>
+        </div>
+        <div class="dna-head" style="border-bottom:1px solid var(--line);background:var(--panel);padding-block:10px">
+          <div class="legend">
+            <span><i aria-hidden="true"></i><span id="legA">You</span></span>
+            <span class="b"><i aria-hidden="true"></i><span id="legB">Sofia</span></span>
+          </div>
+          <span class="t" style="font-size:.6rem">0 — 100</span>
+        </div>
+        <div class="dna-body" id="dnaBody"></div>
+        <div class="arch">
+          <span class="l">Archetype</span>
+          <span class="v" id="archName">The Strategist</span>
+        </div>
+      </div>
+
+      <div class="dna-copy">
+        <p>Eight dimensions, scored from what you tell us and from how you actually work during a trial. Two people can score identically and still be a bad pair — what matters is the shape of the gap between them.</p>
+        <p class="big">The goal is not to find your clone.<br>It's to find your <u>complement</u>.</p>
+        <div class="dims">
+          <span class="dim">What you contribute</span>
+          <span class="dim">What you need</span>
+          <span class="dim">How you work</span>
+          <span class="dim">Risk tolerance</span>
+          <span class="dim">Commitment level</span>
+          <span class="dim">What you're building</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATCH CARDS ============ -->
+<section id="profiles">
+  <div class="wrap sec">
+    <div class="idx"><span class="eyebrow">Product preview · example profiles</span></div>
+    <div class="head">
+      <h2>Meet someone worth building with.</h2>
+      <p class="lede">Every profile shows you both sides: where you fit, and where you will probably rub. Illustrative profiles — not real people.</p>
+    </div>
+
+    <div class="cards">
+      <article class="mcard">
+        <div class="top">
+          <p class="nm">Sofia Martinez</p>
+          <p class="rl">Full-stack engineer</p>
+          <p class="loc">Madrid, Spain · AI · Healthcare · B2B</p>
+        </div>
+        <div class="body">
+          <div class="kv"><span class="k">Available</span><span class="v">Full-time</span></div>
+          <div class="kv"><span class="k">Looking for</span><span class="v">Business + Strategy</span></div>
+          <div class="kv"><span class="k">Skills</span><span class="v normal">Python · React · AI · Product</span></div>
+        </div>
+        <div class="score"><b>94</b><span>% compatible</span></div>
+        <div class="why">
+          <p class="lbl">Why you match</p>
+          <p class="w">Complementary skills</p>
+          <p class="w">Same ambition</p>
+          <p class="w">Same commitment</p>
+          <p class="w">Similar working speed</p>
+          <p class="w">Compatible risk profile</p>
+        </div>
+        <div class="friction">
+          <p class="lbl">Potential challenge</p>
+          <p>You move fast. Sofia prefers validating before committing.</p>
+        </div>
+      </article>
+
+      <article class="mcard">
+        <div class="top">
+          <p class="nm">Diego Arévalo</p>
+          <p class="rl">Growth &amp; operations</p>
+          <p class="loc">Bogotá, Colombia · Fintech · Marketplaces</p>
+        </div>
+        <div class="body">
+          <div class="kv"><span class="k">Available</span><span class="v">Nights + weekends</span></div>
+          <div class="kv"><span class="k">Looking for</span><span class="v">Technical co-founder</span></div>
+          <div class="kv"><span class="k">Skills</span><span class="v normal">Sales · Ops · Pricing · Hiring</span></div>
+        </div>
+        <div class="score"><b>88</b><span>% compatible</span></div>
+        <div class="why">
+          <p class="lbl">Why you match</p>
+          <p class="w">Both distribution-first</p>
+          <p class="w">Same target market</p>
+          <p class="w">High risk tolerance</p>
+          <p class="w">Direct communication style</p>
+        </div>
+        <div class="friction">
+          <p class="lbl">Potential challenge</p>
+          <p>You both want the commercial seat. One of you has to give it up.</p>
+        </div>
+      </article>
+
+      <article class="mcard">
+        <div class="top">
+          <p class="nm">Mei-Lin Ortega</p>
+          <p class="rl">Product designer</p>
+          <p class="loc">Mexico City · Consumer · AI tools</p>
+        </div>
+        <div class="body">
+          <div class="kv"><span class="k">Available</span><span class="v">Full-time in 3 months</span></div>
+          <div class="kv"><span class="k">Looking for</span><span class="v">Strategy + Engineering</span></div>
+          <div class="kv"><span class="k">Skills</span><span class="v normal">Design · Research · Brand · Front-end</span></div>
+        </div>
+        <div class="score"><b>82</b><span>% compatible</span></div>
+        <div class="why">
+          <p class="lbl">Why you match</p>
+          <p class="w">Fills your weakest dimension</p>
+          <p class="w">Same quality standard</p>
+          <p class="w">Compatible working hours</p>
+        </div>
+        <div class="friction">
+          <p class="lbl">Potential challenge</p>
+          <p>Her commitment starts in three months. Yours starts now.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="honest">PAIR isn't about collecting matches. The number we care about is not likes, followers, or messages — it's how many people actually start building together.</p>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section id="cohort">
+  <div class="wrap sec">
+    <div class="comm">
+      <div>
+        <p class="eyebrow">Founding network</p>
+        <h2 style="font-size:clamp(2rem,4.2vw,3.2rem);margin-top:20px">We're building the founding network.</h2>
+        <p class="lede" style="margin-top:22px;color:var(--ink-2)">Join the first generation of entrepreneurs using PAIR to find the people they should build with. We open one city at a time, so the first matches are real ones.</p>
+        <div class="cities">
+          <span class="city">Quito</span>
+          <span class="city">Madrid</span>
+          <span class="city">Bogotá</span>
+          <span class="city">Mexico City</span>
+          <span class="city">Buenos Aires</span>
+          <span class="city ww">Worldwide</span>
+        </div>
+      </div>
+      <div>
+        <button class="btn lg" data-open style="width:100%;justify-content:center">Join the founding cohort <span class="arw" aria-hidden="true">→</span></button>
+        <p style="margin-top:16px;font-size:.9rem;color:var(--muted);text-align:center">Takes about two minutes. No profile is public until you say so.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="invert">
+  <div class="wrap final">
+    <h2>Your next company might start with a conversation.</h2>
+    <p>Find someone who complements your ambition. Test the partnership. Then build.</p>
+    <div class="ctas">
+      <button class="btn lg" data-open>Join PAIR <span class="arw" aria-hidden="true">→</span></button>
+      <span class="free">Free during the founding launch</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="brand">
+        <span class="mark"><span aria-hidden="true">PA</span><i class="seam" aria-hidden="true"></i><span aria-hidden="true">IR</span><span class="sr">PAIR</span></span>
+        <p>Build with the right person.</p>
+      </div>
+      <div class="fcol">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#trial">Founder Trial</a></li>
+          <li><a href="#matching">Matching</a></li>
+          <li><a href="#profiles">Profiles</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#cohort">About</a></li>
+          <li><a href="#cohort">Contact</a></li>
+          <li><a href="#cohort">Privacy</a></li>
+          <li><a href="#cohort">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <p class="copy">© 2026 PAIR</p>
+      <div class="social">
+        <a href="#cohort" aria-label="PAIR on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.5c0-1.31-.03-3-1.9-3-1.9 0-2.2 1.42-2.2 2.9V21h-4z"/></svg></a>
+        <a href="#cohort" aria-label="PAIR on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#cohort" aria-label="PAIR on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.1L4.7 21H1.5l7.5-8.6L1 3h6.6l4.6 5.6zm-1.1 16h1.8L7.7 4.8H5.8z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="scrim" id="scrim" role="dialog" aria-modal="true" aria-labelledby="mTitle" hidden>
+  <div class="modal" id="modal">
+    <div id="formStage">
+      <div class="mhead">
+        <div>
+          <h3 id="mTitle">Join the founding cohort</h3>
+          <p>Six questions. They decide who we introduce you to, so answer them like it matters.</p>
+        </div>
+        <button class="x" id="closeBtn" aria-label="Close"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+      </div>
+      <form id="joinForm" novalidate>
+        <div class="frow">
+          <div class="field">
+            <label for="f-name">First name</label>
+            <input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Andrés">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@domain.com">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-city">City</label>
+          <input id="f-city" name="city" type="text" autocomplete="address-level2" placeholder="Quito">
+        </div>
+        <div class="field">
+          <label for="f-build">What are you looking to build?</label>
+          <textarea id="f-build" name="build" placeholder="An AI agent for credit unions, starting with collections."></textarea>
+        </div>
+        <div class="frow">
+          <div class="field">
+            <label for="f-bring">What can you bring?</label>
+            <textarea id="f-bring" name="bring" placeholder="Strategy, sales, domain knowledge in banking."></textarea>
+          </div>
+          <div class="field">
+            <label for="f-want">What are you looking for in a partner?</label>
+            <textarea id="f-want" name="want" placeholder="Someone who can ship the product without me."></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <label id="seriousLabel">How serious are you?</label>
+          <div class="segs" role="group" aria-labelledby="seriousLabel" id="segs">
+            <button type="button" class="seg" aria-pressed="false" data-serious="Exploring">Exploring</button>
+            <button type="button" class="seg" aria-pressed="false" data-serious="Serious">Serious</button>
+            <button type="button" class="seg" aria-pressed="false" data-serious="Ready now">Ready to start now</button>
+          </div>
+        </div>
+        <p class="err" id="formErr" role="status" aria-live="polite"></p>
+        <button class="btn lg" type="submit" style="justify-content:center">Join the founding cohort <span class="arw" aria-hidden="true">→</span></button>
+      </form>
+    </div>
+
+    <div class="done" id="doneStage" hidden>
+      <div class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5l5.5 5.5L20 7"/></svg></div>
+      <h3>You're in.</h3>
+      <p>We'll let you know when PAIR is ready for your city.</p>
+      <button class="btn ghost" id="doneClose" style="margin-top:28px">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- header ---------- */
+  var head = document.querySelector("header");
+  var onScroll = function(){ head.classList.toggle("stuck", window.scrollY > 8); };
+  onScroll();
+  window.addEventListener("scroll", onScroll, {passive:true});
+
+  /* ---------- hero pair visualization ---------- */
+  var PAIRS = [
+    {
+      pct: 94,
+      axes: ["Technical","Strategy","Speed"],
+      l: {name:"Sofia",  role:"Full-stack Engineer", loc:"Madrid · AI · Healthcare", v:[96,62,84]},
+      r: {name:"Andrés", role:"Business Strategist", loc:"Quito · AI · Fintech",     v:[42,91,88]},
+      note:"Sofia ships the product. Andrés finds the market. Neither gets there alone."
+    },
+    {
+      pct: 88,
+      axes: ["Design","Distribution","Execution"],
+      l: {name:"Lucía", role:"Product Designer", loc:"Buenos Aires · Consumer · Edtech", v:[95,34,81]},
+      r: {name:"Mateo", role:"Growth Operator",  loc:"Bogotá · Fintech · B2B",          v:[28,92,86]},
+      note:"Lucía makes people want it. Mateo makes sure they find it."
+    },
+    {
+      pct: 91,
+      axes: ["Technical","Sales","Risk"],
+      l: {name:"Kenji",     role:"ML Engineer",    loc:"Mexico City · AI · Logistics", v:[93,29,58]},
+      r: {name:"Valentina", role:"Commercial Lead", loc:"Quito · Logistics · SaaS",    v:[36,90,87]},
+      note:"Kenji builds the model. Valentina closes the contract that pays for it."
+    }
+  ];
+  var CHECKS = ["Skills","Ambition","Commitment","Working style","Risk tolerance"];
+  var TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><path d="M4 12.5l5.5 5.5L20 7"/></svg>';
+
+  var pairEl = document.getElementById("pairEl");
+  var dotsEl = document.getElementById("dots");
+  var checksEl = document.getElementById("checks");
+  var pctNum = document.getElementById("pctNum");
+  var compLine = document.getElementById("compLine");
+  var idx = 0, countTimer = null;
+
+  function buildTraits(side, axes, person){
+    var host = pairEl.querySelector('[data-traits="'+side+'"]');
+    host.innerHTML = axes.map(function(a,i){
+      return '<div class="trait"><span>'+a+'</span><span class="track"><span class="fill" style="transform:scaleX('+(person.v[i]/100)+')"></span></span></div>';
+    }).join("");
+  }
+
+  function countTo(target){
+    if (countTimer) cancelAnimationFrame(countTimer);
+    if (reduce){ pctNum.textContent = target; return; }
+    var start = performance.now(), from = parseInt(pctNum.textContent,10) || 0, dur = 900;
+    function frame(now){
+      var t = Math.min(1,(now-start)/dur);
+      var e = 1 - Math.pow(1-t,3);
+      pctNum.textContent = Math.round(from + (target-from)*e);
+      if (t < 1) countTimer = requestAnimationFrame(frame);
+    }
+    countTimer = requestAnimationFrame(frame);
+  }
+
+  function renderPair(i, animate){
+    var p = PAIRS[i];
+    pairEl.querySelector('[data-f="l-name"]').textContent = p.l.name;
+    pairEl.querySelector('[data-f="l-role"]').textContent = p.l.role;
+    pairEl.querySelector('[data-f="l-loc"]').textContent  = p.l.loc;
+    pairEl.querySelector('[data-f="r-name"]').textContent = p.r.name;
+    pairEl.querySelector('[data-f="r-role"]').textContent = p.r.role;
+    pairEl.querySelector('[data-f="r-loc"]').textContent  = p.r.loc;
+    buildTraits("l", p.axes, p.l);
+    buildTraits("r", p.axes, p.r);
+    compLine.textContent = p.note;
+    countTo(p.pct);
+
+    checksEl.innerHTML = CHECKS.map(function(c,n){
+      var d = animate ? (0.10 + n*0.09) : 0;
+      return '<span class="chk" style="animation-delay:'+d+'s">'+TICK+c+'</span>';
+    }).join("");
+
+    Array.prototype.forEach.call(dotsEl.children, function(d,n){
+      d.setAttribute("aria-current", n === i ? "true" : "false");
+    });
+
+    if (animate){
+      pairEl.classList.remove("locked");
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ pairEl.classList.add("locked"); }); });
+    }
+  }
+
+  PAIRS.forEach(function(p,i){
+    var b = document.createElement("button");
+    b.className = "dot"; b.type = "button";
+    b.setAttribute("aria-label","Show example pair "+(i+1));
+    b.addEventListener("click", function(){ idx = i; renderPair(idx, true); });
+    dotsEl.appendChild(b);
+  });
+  document.getElementById("nextPair").addEventListener("click", function(){
+    idx = (idx + 1) % PAIRS.length; renderPair(idx, true);
+  });
+  renderPair(0, true);
+
+  /* ---------- founder trial decision ---------- */
+  var echo = document.getElementById("echo");
+  var ECHO = {
+    yes:   "Sealed. If Sofia also says yes, PAIR opens the build workspace for both of you.",
+    maybe: "Sealed. PAIR extends the trial by three days and changes the missions.",
+    no:    "Sealed. Nothing is shared with Sofia. You both go back to matching."
+  };
+  Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(btn){
+    btn.addEventListener("click", function(){
+      Array.prototype.forEach.call(document.querySelectorAll(".opt"), function(o){ o.setAttribute("aria-pressed","false"); });
+      btn.setAttribute("aria-pressed","true");
+      echo.textContent = ECHO[btn.dataset.answer];
+    });
+  });
+
+  /* ---------- entrepreneurial DNA ---------- */
+  var DNA = {
+    you:   {label:"You",   arch:"The Strategist", v:{Visionary:92,Execution:87,"Risk tolerance":81,Ambition:94,Speed:88,Sales:76,Strategy:91,Technical:42}},
+    sofia: {label:"Sofia", arch:"The Builder",    v:{Visionary:74,Execution:95,"Risk tolerance":62,Ambition:90,Speed:79,Sales:41,Strategy:68,Technical:96}}
+  };
+  var AXES = ["Visionary","Execution","Risk tolerance","Ambition","Speed","Sales","Strategy","Technical"];
+  var dnaBody = document.getElementById("dnaBody");
+  var current = "you";
+
+  dnaBody.innerHTML = AXES.map(function(a){
+    return '<div class="axis" data-axis="'+a+'">'+
+             '<span class="k">'+a+'</span>'+
+             '<span class="track"><span class="fill"></span><span class="ghost"></span></span>'+
+             '<span class="v">0</span>'+
+           '</div>';
+  }).join("");
+
+  function paintDNA(who){
+    var a = DNA[who], b = DNA[who === "you" ? "sofia" : "you"];
+    Array.prototype.forEach.call(dnaBody.children, function(row){
+      var k = row.dataset.axis;
+      row.querySelector(".fill").style.width = a.v[k] + "%";
+      row.querySelector(".ghost").style.left = b.v[k] + "%";
+      row.querySelector(".v").textContent = a.v[k];
+    });
+    document.getElementById("archName").textContent = a.arch;
+    document.getElementById("legA").textContent = a.label;
+    document.getElementById("legB").textContent = b.label;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".who-tab"), function(t){
+    t.addEventListener("click", function(){
+      Array.prototype.forEach.call(document.querySelectorAll(".who-tab"), function(x){ x.setAttribute("aria-selected","false"); });
+      t.setAttribute("aria-selected","true");
+      current = t.dataset.dna;
+      paintDNA(current);
+    });
+  });
+  paintDNA(current);
+
+  /* ---------- waitlist modal ---------- */
+  var scrim = document.getElementById("scrim");
+  var modal = document.getElementById("modal");
+  var formStage = document.getElementById("formStage");
+  var doneStage = document.getElementById("doneStage");
+  var form = document.getElementById("joinForm");
+  var formErr = document.getElementById("formErr");
+  var lastFocus = null;
+  var serious = "";
+
+  function focusables(){
+    return Array.prototype.filter.call(
+      modal.querySelectorAll('button, input, textarea, [href]'),
+      function(el){ return el.offsetParent !== null; }
+    );
+  }
+  function openModal(){
+    lastFocus = document.activeElement;
+    scrim.hidden = false;
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(function(){
+      scrim.classList.add("open");
+      var f = focusables()[0];
+      var first = document.getElementById("f-name");
+      (doneStage.hidden ? (first || f) : document.getElementById("doneClose")).focus();
+    });
+  }
+  function closeModal(){
+    scrim.classList.remove("open");
+    document.body.style.overflow = "";
+    setTimeout(function(){ scrim.hidden = true; }, 280);
+    if (lastFocus) lastFocus.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-open]"), function(b){
+    b.addEventListener("click", openModal);
+  });
+  document.getElementById("closeBtn").addEventListener("click", closeModal);
+  document.getElementById("doneClose").addEventListener("click", closeModal);
+  scrim.addEventListener("mousedown", function(e){ if (e.target === scrim) closeModal(); });
+  document.addEventListener("keydown", function(e){
+    if (scrim.hidden) return;
+    if (e.key === "Escape"){ closeModal(); return; }
+    if (e.key === "Tab"){
+      var f = focusables();
+      if (!f.length) return;
+      var first = f[0], last = f[f.length-1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll(".seg"), function(s){
+    s.addEventListener("click", function(){
+      Array.prototype.forEach.call(document.querySelectorAll(".seg"), function(x){ x.setAttribute("aria-pressed","false"); });
+      s.setAttribute("aria-pressed","true");
+      serious = s.dataset.serious;
+      formErr.textContent = "";
+    });
+  });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = document.getElementById("f-name");
+    var email = document.getElementById("f-email");
+    var city = document.getElementById("f-city");
+    if (!name.value.trim()){ formErr.textContent = "Add your first name so we know who to introduce."; name.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())){ formErr.textContent = "That email doesn't look right — we need it to reach you."; email.focus(); return; }
+    if (!city.value.trim()){ formErr.textContent = "Add your city. We open PAIR one city at a time."; city.focus(); return; }
+    if (!serious){ formErr.textContent = "Pick how serious you are. It changes who we match you with."; return; }
+    formErr.textContent = "";
+    formStage.hidden = true;
+    doneStage.hidden = false;
+    modal.scrollTop = 0;
+    document.getElementById("doneClose").focus();
+  });
+})();
+</script>
+</body>
+</html>
